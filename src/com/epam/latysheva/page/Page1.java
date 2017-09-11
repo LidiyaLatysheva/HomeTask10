@@ -17,6 +17,9 @@ public class Page1 {
     Page1() {
         newInstance();
     }
+    Page1(WebDriver driver) {
+        this.driver = driver;
+    }
 
     private void newInstance() {
         driver = DriverSetUp.getDriver();

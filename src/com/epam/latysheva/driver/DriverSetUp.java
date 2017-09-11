@@ -102,7 +102,10 @@ public class DriverSetUp {
 
     public static WebDriver getDriver() {
         WebDriver driver = null;
-        driver = webDriverThreadLocal.get();
+        //driver = webDriverThreadLocal.get();
+        System.setProperty(Constant.GECKO_DRIVER_SYSTEM_PROPERTY, Constant.PATH_TO_GEKODRIVER);
+
+        driver = new FirefoxDriver();
         if (driver == null)
             throw new IllegalStateException("Driver not set...");
         return driver;

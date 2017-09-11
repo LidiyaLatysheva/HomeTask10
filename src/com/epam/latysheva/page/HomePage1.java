@@ -2,14 +2,20 @@ package com.epam.latysheva.page;
 
 
 import com.epam.latysheva.businessObject.Constant;
-import com.epam.latysheva.businessObject.User;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage1 extends Page1 {
 
     public HomePage1() {
-            }
+        PageFactory.initElements(driver, this);
+    }
+
+    public HomePage1(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(id = "mailbox__login")
     private WebElement loginField;
@@ -25,11 +31,14 @@ public class HomePage1 extends Page1 {
         return this;
     }
 
-    public InboxPage1 login(User user) {
-        loginField.sendKeys(user.getLogin());
-        passwordField.sendKeys(user.getPasswword());
+    public InboxPage1 login(String login, String password) {
+        waitForElementEnabled(Constant.LOGIN_FIELD);
+        loginField.sendKeys(login);
+        waitForElementEnabled(Constant.PASSWORD_FIELD);
+        passwordField.sendKeys(password);
+        waitForElementEnabled(Constant.LOGIN_BUTTON);
         loginButton.click();
-        return new InboxPage1();
+        return new InboxPage1(driver);
     }
 
     public boolean isHomePage() {
@@ -41,7 +50,8 @@ public class HomePage1 extends Page1 {
             return false;
         }
     }
-    public boolean checkAfterLogout(){
+
+    public boolean checkAfterLogout() {
         if (loginButton.isDisplayed()) {
             return true;
         } else {

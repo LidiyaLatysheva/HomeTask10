@@ -1,5 +1,6 @@
 package com.epam.latysheva.test.steps;
 
+import com.epam.latysheva.businessObject.Constant;
 import com.epam.latysheva.util.Assertions;
 import com.epam.latysheva.businessObject.User;
 import com.epam.latysheva.page.ComposePage1;
@@ -28,7 +29,7 @@ public class MailRuSimpleTest {
 
     @When("^Login$")
     public void enterUserInfo() {
-        inboxPage1 = homePage1.login(new User());
+        inboxPage1 = homePage1.login(Constant.LOGIN, Constant.PASSWORD);
     }
 
     @Then("^Inbox page is opened$")

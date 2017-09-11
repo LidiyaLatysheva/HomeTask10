@@ -6,7 +6,6 @@ Feature: MailRu
  @MailRu
  Scenario Outline: MailRu send email
   Given Goto MailRu HomePage "<MailRuURL>"
-  Then Home page is opened
   When Login
   Then Inbox page is opened
   When Click Compose button

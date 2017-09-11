@@ -1,13 +1,15 @@
 package com.epam.latysheva.businessObject;
 
 
+import org.openqa.selenium.By;
+
 public class Constant {
     public static final String PATH_TO_GEKODRIVER = "lib/geckodriver.exe";
     public static final String PATH_TO_CHROMEDRIVER = "lib/chromedriver.exe";
 
     public static final String GECKO_DRIVER_SYSTEM_PROPERTY = "webdriver.gecko.driver";
-    //protected static final String LOGIN = "lida.test.2017";
-    //protected static final String PASSWORD = "$ERDFC5rtfgv";
+    public static final String LOGIN = "lida.test.2017";
+    public static final String PASSWORD = "$ERDFC5rtfgv";
     public static final String EMAIL_DETAILS_TO = "lida.test.2017@mail.ru";
     public static final String EMAIL_DETAILS_SUBJ = "TEST email";
     public static final String EMAIL_DETAILS_BODY = "Hello, dear!";
@@ -35,5 +37,23 @@ public class Constant {
     public static final int ELEMENT_WAITTIME = 10;
     public static final String BROWSER = "chrome";
     public static final String CHROME_DRIVER_PATH = ".\\src\\main\\resources\\drivers\\chromedriver.exe";
+
+
+
+
+    //Locators:
+    public static final By LOGIN_FIELD = By.id("mailbox__login");
+    public static final By PASSWORD_FIELD = By.id("mailbox__password");
+    public static final By LOGIN_BUTTON = By.id("mailbox__auth__button");
+    public static final By COMPOSE_BUTTON = By.cssSelector("a[data-name='compose']");
+    public static final By SEND_BUTTON = By.xpath("//*[@data-name=\"send\"]");
+    public static final By DELETE_BUTTON = By.xpath("//*[@data-name=\"remove\"]");
+
+    public static final By TO_FIELD = By.xpath("//textarea[@data-original-name=\"To\"]");
+    public static final By SUBJECT_FIELD = By.name("Subject");
+    public static final By BODY_FIELD_IFRAME = By.xpath("//iframe[contains(@id, 'composeEditor')]");
+    public static final By BODY_FIELD = By.id("tinymce");
+    public static final By SENT_LINK = By.cssSelector("a[href='/messages/sent/']");
+    public static final By LOGOUT_LINK = By.id("PH_logoutLink");
 
 }

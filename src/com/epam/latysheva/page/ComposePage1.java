@@ -1,11 +1,13 @@
 package com.epam.latysheva.page;
 
 import com.epam.latysheva.businessObject.Constant;
+import com.sun.tools.xjc.addon.code_injector.Const;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class ComposePage1 extends MailBoxPage {
@@ -27,15 +29,18 @@ public class ComposePage1 extends MailBoxPage {
     @FindBy(xpath = "//*[@data-name=\"send\"]")
     private WebElement sendButton;
 
-    public ComposePage1() {
+    public ComposePage1(WebDriver driver) {
+        super(driver);
     }
 
     public ComposePage1 fillToField() {
+        waitForElementEnabled(Constant.TO_FIELD);
         toField.sendKeys(Constant.EMAIL_DETAILS_TO);
         return this;
     }
 
     public ComposePage1 fillSubjectField() {
+        waitForElementEnabled(Constant.SUBJECT_FIELD);
         subjectField.sendKeys(Constant.EMAIL_DETAILS_SUBJ);
         return this;
     }
@@ -59,7 +64,7 @@ public class ComposePage1 extends MailBoxPage {
 
     public MailBoxPage clickSend() {
         sendButton.click();
-        return new MailBoxPage();
+        return new MailBoxPage(driver);
     }
 
 }
