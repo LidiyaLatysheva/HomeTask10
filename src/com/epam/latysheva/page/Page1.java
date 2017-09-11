@@ -17,8 +17,10 @@ public class Page1 {
     Page1() {
         newInstance();
     }
+
     Page1(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     private void newInstance() {

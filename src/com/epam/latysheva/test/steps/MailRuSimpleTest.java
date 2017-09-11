@@ -54,6 +54,11 @@ public class MailRuSimpleTest {
         composePage1.clickSend();
     }
 
+    @Then("^Email is sent$")
+    public void isEmailSent(){
+        assertions.softAssertTrue(composePage1.isEmailSent(),"Email is sent");
+    }
+
     @When("^Log out from the Inbox$")
     public void logout() {
         homePage1 = composePage1.logout();

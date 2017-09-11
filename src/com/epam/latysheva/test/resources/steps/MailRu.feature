@@ -11,7 +11,8 @@ Feature: MailRu
   When Click Compose button
   And Enter email information
   And Click Send button
-  And Log out from the Inbox
+  Then Email is sent
+  When Log out from the Inbox
   Then Home page is opened
 
 

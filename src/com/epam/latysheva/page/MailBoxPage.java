@@ -22,7 +22,7 @@ public class MailBoxPage extends Page1 {
 
     public HomePage1 logout() {
         logoutLink.click();
-        return new HomePage1();
+        return new HomePage1(driver);
     }
 
 }
